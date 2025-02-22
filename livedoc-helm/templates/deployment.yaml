@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: livedoceditor
+spec:
+  replicas: {{ .Values.livedoc_replicaCount }}
+  selector:
+    matchLabels:
+      app: livedoceditor
+  template:
+    metadata:
+      labels:
+        app: livedoceditor
+    spec:
+      containers:
+        - name: livedoceditor
+          image: "{{ .Values.livedoc_image }}:{{ .Values.livedoc_image_tag}}"
+          ports:
+            - containerPort: {{ .Values.livedoc_image_tag }}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: livedoceditor-service
+spec:
+  selector:
+    app: livedoceditor
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: {{ .Values.livedoc_service_targetport }}
+  type: {{ .Values.livedoc_service_type }}
