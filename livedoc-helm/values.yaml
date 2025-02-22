@@ -1,5 +1,5 @@
 livedoc_image: 891376974588.dkr.ecr.ap-south-1.amazonaws.com/demo/live-doc-editor
-livedoc_image_tag: 4
+livedoc_image_tag: 5
 livedoc_container_port: 3000
 livedoc_replicaCount: 2
 livedoc_service_targetport: 80
