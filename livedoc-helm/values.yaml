@@ -3,4 +3,4 @@ livedoc_image_tag: 6
 livedoc_container_port: 3000
 livedoc_replicaCount: 4
 livedoc_service_targetport: 80
-livedoc_service_type: ClusterIP
+livedoc_service_type: LoadBalancer
